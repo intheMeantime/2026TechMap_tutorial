@@ -122,10 +122,43 @@
     section.append(heading, description, video);
     lastChapter.insertAdjacentElement('afterend', section);
   };
+  const addCreators = () => {
+    const main = document.querySelector('.tutorials-overview main');
+    if (!main || main.querySelector('#overthecloud-creators')) return;
+
+    const footer = document.createElement('footer');
+    footer.id = 'overthecloud-creators';
+    footer.setAttribute('aria-labelledby', 'overthecloud-creators-title');
+    footer.style.cssText = 'box-sizing:border-box; padding:40px 24px; margin-top:48px; text-align:center; background:#161616; color:#fff; font-size:16px; line-height:1.6;';
+    const heading = document.createElement('h2');
+    heading.id = 'overthecloud-creators-title';
+    heading.textContent = isEnglish ? 'Created by' : '제작자';
+    heading.style.cssText = 'margin:0 0 8px; color:#fff; font-size:18px; line-height:1.5;';
+    const names = document.createElement('p');
+    names.textContent = 'Yoonseo Chung · Wonkyeong Cho';
+    names.style.cssText = 'margin:0 0 16px; color:#fff;';
+    const links = document.createElement('nav');
+    links.setAttribute('aria-label', isEnglish ? 'Creator links' : '제작자 관련 링크');
+    links.style.cssText = 'display:flex; justify-content:center; flex-wrap:wrap; gap:24px;';
+    const readmeURL = 'https://github.com/intheMeantime/2026TechMap_tutorial/blob/main/README.md';
+    const github = document.createElement('a');
+    github.href = readmeURL;
+    github.textContent = 'GitHub';
+    const contact = document.createElement('a');
+    contact.href = `${readmeURL}#creators-and-contact`;
+    contact.textContent = isEnglish ? 'Contact' : '문의하기';
+    for (const link of [github, contact]) {
+      link.style.cssText = 'color:#6bb8ff; text-decoration:underline; text-underline-offset:3px; padding:6px 4px;';
+    }
+    links.append(github, contact);
+    footer.append(heading, names, links);
+    main.appendChild(footer);
+  };
   const updateOverview = () => {
     updateLanguageLinks();
     formatTitle();
     addFinalVideo();
+    addCreators();
   };
   new MutationObserver(updateOverview).observe(document.documentElement, {
     childList: true,

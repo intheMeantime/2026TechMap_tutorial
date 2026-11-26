@@ -36,6 +36,14 @@ Apple Vision Pro가 없어도 Simulator에서 테스트할 수 있습니다.
 You can test the app in Simulator without Apple Vision Pro. Run it on a device
 to fully experience the depth and immersion of the space.
 
+## Creators and contact
+
+튜토리얼에 대한 질문이나 피드백은 제작자에게 이메일로 보내주세요.
+For questions or feedback about this tutorial, contact the creators by email.
+
+- **Yoonseo Chung** — [celina17022@gmail.com](mailto:celina17022@gmail.com)
+- **Wonkyeong Cho** — [petertom1391@gmail.com](mailto:petertom1391@gmail.com)
+
 ## 이 저장소 · About this repository
 
 이 저장소는 GitHub Pages에 배포하는 정적 DocC 결과물입니다.
